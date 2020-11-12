@@ -17,20 +17,17 @@ public class Judge {
         int[] townTrusted = new int[N];//trusted people
         //loop through trust array
         for(int i = 0; i < trust.length; i++){
-
             int a = trust[i][0];//set an int a to the array at i and 0
             int b = trust[i][1];//set an int b to the array at i and 1
 
             townTrust[a - 1]++;//set the townTrust array at a-1 and increment
             townTrusted[b - 1]++;//set the townTrusted array at b-1 and increment
-
         }
         //loop through all different number of people
         for(int i = 0; i < N; i++){
             //if i is trusted by everyone (N-1) and trusts no one (0), then it is the town judge
             if(townTrust[i] == 0 && townTrusted[i] == N - 1){
-                return i + 1;
-            }
+                return i + 1;}
         }
         //if NO judge, then return -1
         return -1;
